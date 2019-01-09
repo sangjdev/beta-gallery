@@ -1,0 +1,12 @@
+$color-0 : #333;
+$color-1 : #fd0054;
+$color-2 : #2b2024;
+$color-3 : #2b2024;
+$color-4 : #f9f7f7;
+$color-5 : #fffbfe;
+$breakpoints: (
+  'phone': 576px,
+  'tablet': 768px,
+  'tc': 992px,
+  'desktop': 1200px
+) !default;

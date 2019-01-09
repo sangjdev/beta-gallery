@@ -1,0 +1,21 @@
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import '~include-media/dist/include-media';
+
+body,html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+.p {
+    background-color: $color-1;
+}
+.s {
+    background-color: $color-3;
+}
+.t {
+    background-color: $color-4;
+}

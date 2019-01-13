@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
+import encodeurl from 'encodeurl';
+
 class gallery extends Component {
   state = {
     id: '',
@@ -26,6 +28,14 @@ class gallery extends Component {
       .catch(function(error) {
         console.log(error);
       });
+  };
+  onNaverLogin = () => {
+    const encoded = encodeurl('http://localhost/api/user/callbackNaver');
+    const state = 'hLiDdL2uhPtsftcU';
+    window.open(
+      `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=nMBOrJIAUWPC_o2Sv_wQ&redirect_uri=${encoded}&state=${state}`,
+      '_blank',
+    );
   };
   onLogout = () => {
     axios('http://121.132.88.200/api/user/logout', {
@@ -103,7 +113,11 @@ class gallery extends Component {
         <br />
         pw : <input type="password" onChange={this.onChangePw} />
         <button onClick={() => this.onLogin()}>로그인</button>
+        <br />
+        <button onClick={() => this.onNaverLogin()}>네이버-로그인</button>
+        <br />
         <button onClick={() => this.getTest()}>getTest</button>
+        <br />
         <button onClick={() => this.check()}>check!!</button>
       </Fragment>
     );

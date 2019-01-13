@@ -17,12 +17,10 @@ class gallery extends Component {
       withCredentials: true,
     })
       .then(response => {
-        if (response.data.success) {
-          this.setState({
-            logged: true,
-            name: response.data.userId,
-          });
-        }
+        this.setState({
+          logged: true,
+          name: response.data.userId,
+        });
         localStorage.setItem('name', response.data.userId);
       })
       .catch(function(error) {
@@ -55,11 +53,9 @@ class gallery extends Component {
       withCredentials: true,
     })
       .then(response => {
-        if (response.data.success) {
-          this.setState({
-            name: name,
-          });
-        }
+        this.setState({
+          name: name,
+        });
       })
       .catch(error => {
         localStorage.removeItem('name');
@@ -99,6 +95,7 @@ class gallery extends Component {
         로그인 성공! {this.state.name} 님 안녕하세요.
         <button onClick={() => this.onLogout()}>로그아웃</button>
         <button onClick={() => this.getTest()}>getTest</button>
+        <button onClick={() => this.check()}>check!!</button>
       </Fragment>
     ) : (
       <Fragment>
@@ -107,7 +104,7 @@ class gallery extends Component {
         pw : <input type="password" onChange={this.onChangePw} />
         <button onClick={() => this.onLogin()}>로그인</button>
         <button onClick={() => this.getTest()}>getTest</button>
-        {/* <button onClick={() => this.check()}>check!!</button> */}
+        <button onClick={() => this.check()}>check!!</button>
       </Fragment>
     );
   }
